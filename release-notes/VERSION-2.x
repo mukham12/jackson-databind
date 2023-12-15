@@ -6,7 +6,39 @@ Project: jackson-databind
 
 2.17.0 (not yet released)
 
--
+#736: `MapperFeature.REQUIRE_SETTERS_FOR_GETTERS` has no effect
+ (reported by @migel)
+ (fix contributed by Joo-Hyuk K)
+#4160: Deprecate `DefaultTyping.EVERYTHING` in `2.x` and remove in `3.0`
+ (contributed by Joo-Hyuk K)
+#4194: Add `JsonNodeFeature.FAIL_ON_NAN_TO_BIG_DECIMAL_COERCION` option to
+  fail on attempting to coerce `NaN` into `BigDecimal`
+ (contributed by Joo-Hyuk K)
+#4205: Consider types in `sun.*` package(s) to be JDK (platform) types
+  for purposes of handling
+#4209: Make `BeanDeserializerModifier`/`BeanSerializerModifier`
+  implement `java.io.Serializable`
+ (fix contributed by Muhammad K)
+#4214: `EnumSet` deserialization does not work when we activate
+  default typing in `ObjectMapper`
+ (reported by @dvhvsekhar)
+#4248: `ThrowableDeserializer` does not handle `null` well for `cause`
+#4250: Add input validation for `NumberDeserializers` deserializers
+ for "stringified" FP numbers
+#4262: Improve handling of `null` insertion failure for `TreeSet`
+#4263: Change `ObjectArrayDeserializer` to use "generic" type parameter
+  (`java.lang.Object`) to remove co-variant return type
+
+2.16.1 (not yet released)
+
+#4200: `JsonSetter(contentNulls = FAIL)` is ignored in delegating
+  `@JsonCreator` argument
+#4216: Primitive array deserializer cannot being captured by `DeserializerModifier`
+ (reported by @SakuraKoi)
+ (fix contributed by Joo-Hyuk K)
+#4229 JsonNode findValues and findParents missing expected values in 2.16.0
+ (reported by @gcookemoto)
+ (fix contributed by Joo-Hyuk K)
 
 2.16.0 (15-Nov-2023)
 
@@ -17,6 +49,12 @@ Project: jackson-databind
  (contributed by Joo-Hyuk K)
 #2787: Mix-ins do not work for `Enum`s
  (fix contributed by Joo-Hyuk K)
+#3133: Map deserialization results in different numeric classes based on
+  json ordering (BigDecimal / Double) when used in combination with @JsonSubTypes
+ (reported by @mreiterer)
+#3277: Combination of `@JsonUnwrapped` and `@JsonAnySetter` results in `BigDecimal`
+  instead of `Double`
+ (reported John H)
 #3251: Generic class with generic field of runtime type `Double` is deserialized
   as `BigDecimal` when used with `@JsonTypeInfo` and `JsonTypeInfo.As.EXISTING_PROPERTY`
  (reported by Kevin B)
